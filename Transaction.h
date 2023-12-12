@@ -42,6 +42,20 @@ public:
         }
     }
 
+    // Getters
+    AbstractBankAccount *getFrom() const {
+        return from;
+    }
+
+    AbstractBankAccount *getTo() const {
+        return to;
+    }
+
+    double getAmount() const {
+        return amount;
+    }
+
+
     // Execute transaction
     void execute() {
         if (from != NULL) {
@@ -51,8 +65,21 @@ public:
             to->deposit(amount);
         }
     }
-
 };
+
+std::ostream &operator<<(std::ostream &out, const Transaction &transaction) {
+    out << "Transaction = { ";
+    if (transaction.getFrom() != NULL) {
+        out << "From: ";
+        out << *transaction.getFrom() << ", ";
+    }
+    if (transaction.getTo() != NULL) {
+        out << "To: ";
+        out << *transaction.getTo() << ", ";
+    }
+    out << "Amount: " << transaction.getAmount() << " }";
+    return out;
+}
 
 
 #endif //CPP_LAB_7_8_TRANSACTION_H

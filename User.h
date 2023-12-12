@@ -69,6 +69,16 @@ public:
         return savingsAccount;
     }
 
+    // Accessors
+
+    CheckingAccount &accessCheckingAccount() {
+        return checkingAccount;
+    }
+
+    SavingsAccount &accessSavingsAccount() {
+        return savingsAccount;
+    }
+
     // Setters
     void setName(const std::string &newName) {
         name = newName;
@@ -84,10 +94,15 @@ public:
 
     // Format
     void format(std::ostream &out) const {
-        out << "User = { name: " << name << ", checkingAccount: " << checkingAccount
-            << ", savingsAccount: " << savingsAccount << " }";
+        out << "User = { name: \"" << getName() << "\", checkingAccount: " << getCheckingAccount()
+            << ", savingsAccount: " << getSavingsAccount() << " }";
     }
 };
+
+std::ostream &operator<<(std::ostream &out, const User &user) {
+    user.format(out);
+    return out;
+}
 
 
 #endif //CPP_LAB_7_8_USER_H
