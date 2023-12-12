@@ -7,4 +7,5 @@ add_executable(cpp_lab_7_8 main.cpp
         AbstractBankAccount.h
         CheckingAccount.h
         SavingsAccount.h
-        Transaction.h)
+        Transaction.h
+        User.h)

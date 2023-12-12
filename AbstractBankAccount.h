@@ -15,6 +15,8 @@ public:
         balance = 0;
     }
 
+    virtual ~AbstractBankAccount() {}
+
     double getBalance() const {
         return balance;
     }

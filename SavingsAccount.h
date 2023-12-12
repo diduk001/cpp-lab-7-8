@@ -26,6 +26,10 @@ public:
         this->updateCoefficient = updateCoefficient;
     }
 
+    // Destructor
+    ~SavingsAccount() {
+    }
+
     // Constructor with initial balance and updateCoefficient
     SavingsAccount(double balance, double updateCoefficient) {
         if (balance < 0) throw std::out_of_range("Balance cannot be negative");
@@ -39,10 +43,6 @@ public:
     SavingsAccount(const SavingsAccount &other) : AbstractBankAccount(other) {
         balance = other.balance;
         updateCoefficient = other.updateCoefficient;
-    }
-
-    // Destructor
-    ~SavingsAccount() {
     }
 
     // Copy assignment operator
