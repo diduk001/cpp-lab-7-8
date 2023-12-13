@@ -5,16 +5,7 @@
 #include "StreamUtils.h"
 
 std::istream &operator>>(std::istream &in, User &user) {
-    skipWhitespaces(in);
-
-    char header[5];
-    in.read(header, 4);
-    header[4] = '\0';
-
-    if (in.gcount() != 4)
-        throw std::length_error("Couldn't read 4 bytes");
-    else if (strcmp(header, "User") != 0)
-        throw std::invalid_argument("Couldn't find \"User\" in stream");
+    inputAndCheck(in, "User");
 
     char equalSign;
     in >> equalSign; // ">>" skips whitespaces
@@ -26,15 +17,7 @@ std::istream &operator>>(std::istream &in, User &user) {
     if (openBrace != '{')
         throw std::invalid_argument("Couldn't find \"{\" in stream");
 
-    skipWhitespaces(in);
-
-    char nameHeader[6];
-    in.read(nameHeader, 5);
-    nameHeader[5] = '\0';
-    if (in.gcount() != 5)
-        throw std::length_error("Couldn't read 5 bytes");
-    else if (strcmp(nameHeader, "name:") != 0)
-        throw std::invalid_argument("Couldn't find \"name:\" in stream");
+    inputAndCheck(in, "name:");
 
     std::string name;
     in >> name;
@@ -48,18 +31,7 @@ std::istream &operator>>(std::istream &in, User &user) {
     if (comma != ',')
         throw std::invalid_argument("Couldn't find \",\" in stream");
 
-    skipWhitespaces(in);
-
-    char checkingAccountHeader[17];
-    in.read(checkingAccountHeader, 16);
-    checkingAccountHeader[16] = '\0';
-    if (in.gcount() != 16)
-        throw std::length_error("Couldn't read 16 bytes");
-    else if (strcmp(checkingAccountHeader, "checkingAccount:") != 0) {
-        std::cerr << checkingAccountHeader << '\n';
-        throw std::invalid_argument("Couldn't find \"checkingAccount:\" in stream");
-    }
-
+    inputAndCheck(in, "checkingAccount:");
     CheckingAccount checkingAccount;
     in >> checkingAccount;
 
@@ -67,16 +39,7 @@ std::istream &operator>>(std::istream &in, User &user) {
     if (comma != ',')
         throw std::invalid_argument("Couldn't find \",\" in stream");
 
-    skipWhitespaces(in);
-
-    char savingsAccountHeader[16];
-    in.read(savingsAccountHeader, 15);
-    savingsAccountHeader[15] = '\0';
-    if (in.gcount() != 15)
-        throw std::length_error("Couldn't read 15 bytes");
-    else if (strcmp(savingsAccountHeader, "savingsAccount:") != 0)
-        throw std::invalid_argument("Couldn't find \"savingsAccount:\" in stream");
-
+    inputAndCheck(in, "savingsAccount:");
     SavingsAccount savingsAccount;
     in >> savingsAccount;
 

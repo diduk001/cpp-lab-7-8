@@ -11,7 +11,6 @@ int main() {
     CheckingAccount checkingAccount(100, 10);
     SavingsAccount savingsAccount(100, 0.1);
     User user("User", checkingAccount, savingsAccount);
-    std::cout << user;
 
     while (true) {
         std::cout << "Current user:" << std::endl;
