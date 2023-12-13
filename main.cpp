@@ -3,14 +3,14 @@
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
 #include "Transaction.h"
-#include "User.h"
+#include "Customer.h"
 
 void executeTransaction(CheckingAccount &checkingAccount, SavingsAccount &savingsAccount);
 
 int main() {
     CheckingAccount checkingAccount(100, 10);
     SavingsAccount savingsAccount(100, 0.1);
-    User user("User", checkingAccount, savingsAccount);
+    Customer user("Customer", checkingAccount, savingsAccount);
 
     while (true) {
         std::cout << "Current user:" << std::endl;

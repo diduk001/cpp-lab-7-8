@@ -5,10 +5,10 @@
 #ifndef CPP_LAB_7_8_SAVINGSACCOUNT_H
 #define CPP_LAB_7_8_SAVINGSACCOUNT_H
 
-#include "AbstractBankAccount.h"
+#include "BankAccount.h"
 #include <iostream>
 
-class SavingsAccount : public AbstractBankAccount {
+class SavingsAccount : public BankAccount {
 private:
     double updateCoefficient;
 public:
@@ -40,7 +40,7 @@ public:
     }
 
     // Copy constructor
-    SavingsAccount(const SavingsAccount &other) : AbstractBankAccount(other) {
+    SavingsAccount(const SavingsAccount &other) : BankAccount(other) {
         balance = other.balance;
         updateCoefficient = other.updateCoefficient;
     }

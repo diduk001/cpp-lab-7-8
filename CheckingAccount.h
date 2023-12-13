@@ -5,12 +5,12 @@
 #ifndef CPP_LAB_7_8_CHECKINGACCOUNT_H
 #define CPP_LAB_7_8_CHECKINGACCOUNT_H
 
-#include "AbstractBankAccount.h"
+#include "BankAccount.h"
 #include <iostream>
 #include <exception>
 #include <cstring>
 
-class CheckingAccount : public AbstractBankAccount {
+class CheckingAccount : public BankAccount {
 protected:
     double fee;
 public:
@@ -38,7 +38,7 @@ public:
     }
 
     // Copy constructor
-    CheckingAccount(const CheckingAccount &other) : AbstractBankAccount(other) {
+    CheckingAccount(const CheckingAccount &other) : BankAccount(other) {
         balance = other.balance;
         fee = other.fee;
     }

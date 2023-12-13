@@ -1,1 +1,1 @@
-User = { name: "User", checkingAccount: CheckingAccount = { balance: 100, fee: 10 }, savingsAccount: SavingsAccount = { balance: 100, updateCoefficient: 0.1 } }
+Customer = { name: "Customer", checkingAccount: CheckingAccount = { balance: 100, fee: 10 }, savingsAccount: SavingsAccount = { balance: 100, updateCoefficient: 0.1 } }

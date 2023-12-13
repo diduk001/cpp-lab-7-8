@@ -1,4 +1,4 @@
-User = {
+Customer = {
         name: "UserFromFile" ,
         checkingAccount: CheckingAccount = {
                                             balance: 50,

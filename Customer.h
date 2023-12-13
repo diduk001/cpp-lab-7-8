@@ -2,52 +2,52 @@
 // Created by Stepan on 12.12.2023.
 //
 
-#ifndef CPP_LAB_7_8_USER_H
-#define CPP_LAB_7_8_USER_H
+#ifndef CPP_LAB_7_8_CUSTOMER_H
+#define CPP_LAB_7_8_CUSTOMER_H
 
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
 
-class User {
+class Customer {
 private:
     std::string name;
     CheckingAccount checkingAccount;
     SavingsAccount savingsAccount;
 public:
     // Empty constructor
-    User() {
+    Customer() {
         name = "";
         checkingAccount = CheckingAccount();
         savingsAccount = SavingsAccount();
     }
 
     // Constructor with initial name
-    explicit User(const std::string &name) {
+    explicit Customer(const std::string &name) {
         this->name = name;
         checkingAccount = CheckingAccount();
         savingsAccount = SavingsAccount();
     }
 
     // Constructor with initial name, checkingAccount and savingsAccount
-    User(const std::string &name, const CheckingAccount &checkingAccount, const SavingsAccount &savingsAccount) {
+    Customer(const std::string &name, const CheckingAccount &checkingAccount, const SavingsAccount &savingsAccount) {
         this->name = name;
         this->checkingAccount = CheckingAccount(checkingAccount);
         this->savingsAccount = SavingsAccount(savingsAccount);
     }
 
     // Copy constructor
-    User(const User &other) {
+    Customer(const Customer &other) {
         name = other.name;
         checkingAccount = CheckingAccount(other.checkingAccount);
         savingsAccount = SavingsAccount(other.savingsAccount);
     }
 
     // Destructor
-    ~User() {
+    ~Customer() {
     }
 
     // Copy assignment operator
-    User &operator=(const User &other) {
+    Customer &operator=(const Customer &other) {
         if (this != &other) {
             name = other.name;
             checkingAccount = CheckingAccount(other.checkingAccount);
@@ -94,17 +94,17 @@ public:
 
     // Format
     void format(std::ostream &out) const {
-        out << "User = { name: \"" << getName() << "\" , checkingAccount: " << getCheckingAccount()
+        out << "Customer = { name: \"" << getName() << "\" , checkingAccount: " << getCheckingAccount()
             << ", savingsAccount: " << getSavingsAccount() << " }";
     }
 
-    friend std::istream &operator>>(std::istream &in, User &user);
+    friend std::istream &operator>>(std::istream &in, Customer &user);
 
-    friend std::ostream &operator<<(std::ostream &out, const User &user) {
+    friend std::ostream &operator<<(std::ostream &out, const Customer &user) {
         user.format(out);
         return out;
     }
 };
 
 
-#endif //CPP_LAB_7_8_USER_H
+#endif //CPP_LAB_7_8_CUSTOMER_H

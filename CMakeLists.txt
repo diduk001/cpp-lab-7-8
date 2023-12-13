@@ -4,15 +4,15 @@ project(cpp_lab_7_8)
 set(CMAKE_CXX_STANDARD 98)
 
 add_executable(cpp_lab_7_8 main.cpp
-        AbstractBankAccount.h
-        AbstractBankAccount.cpp
+        BankAccount.h
+        BankAccount.cpp
         StreamUtils.h
         CheckingAccount.h
         CheckingAccount.cpp
         SavingsAccount.h
         SavingsAccount.cpp
         Transaction.h
-        User.h
+        Customer.h
         StreamUtils.cpp
-        User.cpp
+        Customer.cpp
 )

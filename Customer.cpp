@@ -1,11 +1,11 @@
 //
 // Created by Stepan on 13.12.2023.
 //
-#include "User.h"
+#include "Customer.h"
 #include "StreamUtils.h"
 
-std::istream &operator>>(std::istream &in, User &user) {
-    inputAndCheck(in, "User");
+std::istream &operator>>(std::istream &in, Customer &user) {
+    inputAndCheck(in, "Customer");
 
     char equalSign;
     in >> equalSign; // ">>" skips whitespaces
@@ -48,7 +48,7 @@ std::istream &operator>>(std::istream &in, User &user) {
     if (closeBrace != '}')
         throw std::invalid_argument("Couldn't find \"}\" in stream");
 
-    user = User(name, checkingAccount, savingsAccount);
+    user = Customer(name, checkingAccount, savingsAccount);
     return in;
 }
 

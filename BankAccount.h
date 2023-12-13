@@ -2,20 +2,20 @@
 // Created by Stepan on 11.12.2023.
 //
 
-#ifndef CPP_LAB_7_8_ABSTRACTBANKACCOUNT_H
-#define CPP_LAB_7_8_ABSTRACTBANKACCOUNT_H
+#ifndef CPP_LAB_7_8_BANKACCOUNT_H
+#define CPP_LAB_7_8_BANKACCOUNT_H
 
 #include <stdexcept>
 
-class AbstractBankAccount {
+class BankAccount {
 protected:
     double balance;
 public:
-    AbstractBankAccount() {
+    BankAccount() {
         balance = 0;
     }
 
-    virtual ~AbstractBankAccount() {}
+    virtual ~BankAccount() {}
 
     double getBalance() const {
         return balance;
@@ -28,14 +28,14 @@ public:
 
     virtual void withdraw(double amount) = 0;
 
-    bool operator==(const AbstractBankAccount &other) const {
+    bool operator==(const BankAccount &other) const {
         return balance == other.balance;
     }
 
     virtual void format(std::ostream &out) const = 0;
 
-    friend std::ostream &operator<<(std::ostream &out, const AbstractBankAccount &bankAccount);
+    friend std::ostream &operator<<(std::ostream &out, const BankAccount &bankAccount);
 };
 
 
-#endif //CPP_LAB_7_8_ABSTRACTBANKACCOUNT_H
+#endif //CPP_LAB_7_8_BANKACCOUNT_H

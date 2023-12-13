@@ -5,12 +5,12 @@
 #ifndef CPP_LAB_7_8_TRANSACTION_H
 #define CPP_LAB_7_8_TRANSACTION_H
 
-#include "AbstractBankAccount.h"
+#include "BankAccount.h"
 
 class Transaction {
 private:
-    AbstractBankAccount *from;
-    AbstractBankAccount *to;
+    BankAccount *from;
+    BankAccount *to;
     double amount;
 public:
     // Default constructor
@@ -21,7 +21,7 @@ public:
     }
 
     // Constructor with initial from, to and amount
-    Transaction(AbstractBankAccount *from, AbstractBankAccount *to, double amount) {
+    Transaction(BankAccount *from, BankAccount *to, double amount) {
         if (amount < 0) throw std::out_of_range("Amount cannot be negative");
 
         this->from = from;
@@ -30,7 +30,7 @@ public:
     }
 
     // Constructor with only one account
-    Transaction(AbstractBankAccount *account, double amount) {
+    Transaction(BankAccount *account, double amount) {
         if (amount < 0) {
             this->from = account;
             this->to = NULL;
@@ -43,11 +43,11 @@ public:
     }
 
     // Getters
-    AbstractBankAccount *getFrom() const {
+    BankAccount *getFrom() const {
         return from;
     }
 
-    AbstractBankAccount *getTo() const {
+    BankAccount *getTo() const {
         return to;
     }
 
