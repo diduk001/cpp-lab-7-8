@@ -7,6 +7,8 @@
 
 #include "AbstractBankAccount.h"
 #include <iostream>
+#include <exception>
+#include <cstring>
 
 class SavingsAccount : public AbstractBankAccount {
 private:
@@ -72,7 +74,7 @@ public:
     }
 
     void format(std::ostream &out) const {
-        out << "CheckingAccount = { balance: " << getBalance() << ", updateCoefficient: "
+        out << "SavingsAccount = { balance: " << getBalance() << ", updateCoefficient: "
             << getUpdateCoefficient() << " }";
     }
 };
