@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "CheckingAccount.h"
 #include "SavingsAccount.h"
 #include "Transaction.h"
@@ -41,6 +42,14 @@ int main() {
             std::cout << "Unknown command" << std::endl;
         }
     }
+
+    std::string outputFilename;
+    std::cout << "Enter output file name > ";
+    std::cin >> outputFilename;
+
+    std::ofstream out(outputFilename.c_str());
+    out << user << std::endl;
+    out.close();
 
     return 0;
 }
