@@ -69,7 +69,7 @@ public:
         return savingsAccount;
     }
 
-    // Accessors
+    // Account accessors
 
     CheckingAccount &accessCheckingAccount() {
         return checkingAccount;
@@ -82,14 +82,6 @@ public:
     // Setters
     void setName(const std::string &newName) {
         name = newName;
-    }
-
-    void setCheckingAccount(const CheckingAccount &newCheckingAccount) {
-        checkingAccount = CheckingAccount(newCheckingAccount);
-    }
-
-    void setSavingsAccount(const SavingsAccount &newSavingsAccount) {
-        savingsAccount = SavingsAccount(newSavingsAccount);
     }
 
     // Format

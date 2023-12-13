@@ -47,14 +47,17 @@ public:
 
     // Copy assignment operator
     SavingsAccount &operator=(const SavingsAccount &other) {
-        balance = other.balance;
-        updateCoefficient = other.updateCoefficient;
+        if (this != &other) {
+            balance = other.balance;
+            updateCoefficient = other.updateCoefficient;
+        }
         return *this;
     }
 
-    // SavingsAccount's balance can be negative
+    // SavingsAccount's balance can't be negative
     void withdraw(double amount) {
         if (amount < 0) throw std::out_of_range("Withdraw amount cannot be negative");
+        if (balance - amount < 0) throw std::out_of_range("Balance cannot be negative");
         balance -= amount;
     }
 

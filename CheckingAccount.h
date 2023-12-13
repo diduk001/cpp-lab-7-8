@@ -49,8 +49,10 @@ public:
 
     // Copy assignment operator
     CheckingAccount &operator=(const CheckingAccount &other) {
-        balance = other.balance;
-        fee = other.fee;
+        if (this != &other) {
+            balance = other.balance;
+            fee = other.fee;
+        }
         return *this;
     }
 

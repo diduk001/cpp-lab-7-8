@@ -15,4 +15,5 @@ add_executable(cpp_lab_7_8 main.cpp
         Customer.h
         StreamUtils.cpp
         Customer.cpp
+        Transaction.cpp
 )
