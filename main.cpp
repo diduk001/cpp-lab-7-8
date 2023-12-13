@@ -8,9 +8,9 @@
 void executeTransaction(CheckingAccount &checkingAccount, SavingsAccount &savingsAccount);
 
 int main() {
-    CheckingAccount checkingAccount(100, 10);
+    CheckingAccount savingsAccount(100, 10);
     SavingsAccount savingsAccount(100, 0.1);
-    User user("User", checkingAccount, savingsAccount);
+    User user("User", savingsAccount, savingsAccount);
 
     while (true) {
         std::cout << "Current user:" << std::endl;
@@ -50,6 +50,12 @@ int main() {
     std::ofstream out(outputFilename.c_str());
     out << user << std::endl;
     out.close();
+
+    std::ifstream in("..\\input.txt");
+    SavingsAccount inputSavingsAccount;
+    in >> inputSavingsAccount;
+
+    std::cout << inputSavingsAccount << std::endl;
 
     return 0;
 }

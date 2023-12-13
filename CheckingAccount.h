@@ -7,6 +7,8 @@
 
 #include "AbstractBankAccount.h"
 #include <iostream>
+#include <exception>
+#include <cstring>
 
 class CheckingAccount : public AbstractBankAccount {
 protected:
@@ -73,6 +75,8 @@ public:
     void format(std::ostream &out) const {
         out << "CheckingAccount = { balance: " << getBalance() << ", fee: " << getFee() << " }";
     }
+
+    friend std::istream &operator>>(std::istream &in, CheckingAccount &checkingAccount);
 };
 
 

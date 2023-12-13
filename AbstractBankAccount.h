@@ -33,12 +33,9 @@ public:
     }
 
     virtual void format(std::ostream &out) const = 0;
-};
 
-std::ostream &operator<<(std::ostream &out, const AbstractBankAccount &bankAccount) {
-    bankAccount.format(out);
-    return out;
-}
+    friend std::ostream &operator<<(std::ostream &out, const AbstractBankAccount &bankAccount);
+};
 
 
 #endif //CPP_LAB_7_8_ABSTRACTBANKACCOUNT_H

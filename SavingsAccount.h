@@ -7,8 +7,6 @@
 
 #include "AbstractBankAccount.h"
 #include <iostream>
-#include <exception>
-#include <cstring>
 
 class SavingsAccount : public AbstractBankAccount {
 private:
@@ -77,6 +75,8 @@ public:
         out << "SavingsAccount = { balance: " << getBalance() << ", updateCoefficient: "
             << getUpdateCoefficient() << " }";
     }
+
+    friend std::istream &operator>>(std::istream &in, SavingsAccount &savingAccount);
 };
 
 
