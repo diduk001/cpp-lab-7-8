@@ -94,15 +94,17 @@ public:
 
     // Format
     void format(std::ostream &out) const {
-        out << "User = { name: \"" << getName() << "\", checkingAccount: " << getCheckingAccount()
+        out << "User = { name: \"" << getName() << "\" , checkingAccount: " << getCheckingAccount()
             << ", savingsAccount: " << getSavingsAccount() << " }";
     }
-};
 
-std::ostream &operator<<(std::ostream &out, const User &user) {
-    user.format(out);
-    return out;
-}
+    friend std::istream &operator>>(std::istream &in, User &user);
+
+    friend std::ostream &operator<<(std::ostream &out, const User &user) {
+        user.format(out);
+        return out;
+    }
+};
 
 
 #endif //CPP_LAB_7_8_USER_H
